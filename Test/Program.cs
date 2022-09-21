@@ -7,6 +7,7 @@ namespace Test {
             var elso = int.Parse(Console.ReadLine());
             Console.Write("Második szám: ");
             var masodik = int.Parse(Console.ReadLine());
+            Console.WriteLine($"A {Math.Max(elso, masodik)}. a nagyobb szám");
         }
     }
 }
