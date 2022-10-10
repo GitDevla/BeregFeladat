@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Jackie {
+﻿namespace Jackie {
     internal class Year {
         readonly public int date;
         readonly public int races;

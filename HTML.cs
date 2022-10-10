@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Jackie {
+﻿namespace Jackie {
     internal class HTML {
         string style;
         string body;
@@ -36,7 +30,7 @@ namespace Jackie {
             body += input;
         }
 
-        static public string CreateElement(string tag,object content) {
+        static public string CreateElement(string tag, object content) {
             return $"<{tag}>{content}</{tag}>";
         }
     }

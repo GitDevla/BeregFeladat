@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text.Encodings.Web;
-
-namespace Jackie {
+﻿namespace Jackie {
     internal class Program {
 
         static List<Year> years = new List<Year>();
@@ -41,7 +38,7 @@ namespace Jackie {
                 Console.WriteLine($"\t{item.Key}-es évek: {item.Value} megnyert verseny");
         }
 
-        private static Dictionary<int,int> winsPerDecade() {
+        private static Dictionary<int, int> winsPerDecade() {
             var hashmap = new Dictionary<int, int>();
             foreach (var item in years) {
                 var decade = (item.date % 100) / 10 * 10;
@@ -63,7 +60,7 @@ namespace Jackie {
         }
 
         static void Exit(string output) {
-            Console.WriteLine("\n"+output);
+            Console.WriteLine("\n" + output);
             Console.ReadKey();
             Environment.Exit(0);
         }
@@ -72,7 +69,5 @@ namespace Jackie {
             if (!File.Exists(path)) Exit($"A {path} file nem létezik");
             return File.ReadAllLines(path);
         }
-
-        
     }
 }
