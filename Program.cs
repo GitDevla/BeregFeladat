@@ -32,7 +32,7 @@ namespace Kémia
             }
         }
 
-        private static Dictionary<string,int> discoveriesPerYear()
+        private static Dictionary<string, int> discoveriesPerYear()
         {
             return findings.GroupBy(i => i.Year)
                .ToDictionary(i => i.Key, i => i.ToList().Count());
@@ -55,7 +55,7 @@ namespace Kémia
         {
             Console.WriteLine("6. feladat: Keresés");
             var found = findings.Find(i => i.Compound.Sign.ToLower() == sign.ToLower());
-            if (found is null) Console.WriteLine("Nincs ilyen elem az adat forrásban");
+            if (found is null) Console.WriteLine("\tNincs ilyen elem az adat forrásban");
             else
             {
                 Console.WriteLine($"\tAz elem vegyjele: {found.Compound.Sign} ");
@@ -63,27 +63,24 @@ namespace Kémia
                 Console.WriteLine($"\tRendszama: {found.Compound.Number} ");
                 Console.WriteLine($"\tFelfedezés éve: {found.Year} ");
                 Console.WriteLine($"\tFelfedező: {found.Discoverer} ");
-
             }
         }
 
-        private static string input(string output, Func<string, bool> test)
+        private static string input(string output, Func<string, bool> validityTest)
         {
-            var valid = true;
-            var input = "";
+            string input;
+            bool valid;
             do
             {
                 Console.Write(output);
                 input = Console.ReadLine();
-                valid = test(input);
+                valid = validityTest(input);
             } while (!valid);
             return input;
         }
 
-        private static bool isValid(string input)
-        {
-            return Regex.IsMatch(input, "^[a-zA-Z]{2}$");
-        }
+        private static bool isValid(string input) => Regex.IsMatch(input, "^[a-zA-Z]{2}$");
+
 
         static void StoreData(IEnumerable<string> input)
         {
