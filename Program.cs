@@ -79,7 +79,7 @@ namespace Kémia
             return input;
         }
 
-        private static bool isValid(string input) => Regex.IsMatch(input, "^[a-zA-Z]{2}$");
+        private static bool isValid(string input) => Regex.IsMatch(input, "^[a-zA-Z]{1,2}$");
 
 
         static void StoreData(IEnumerable<string> input)
