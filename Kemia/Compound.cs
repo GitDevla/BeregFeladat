@@ -1,4 +1,4 @@
-﻿namespace Kémia
+﻿namespace Kemia
 {
     class Compound
     {
