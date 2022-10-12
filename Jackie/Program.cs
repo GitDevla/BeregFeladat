@@ -1,4 +1,9 @@
-﻿namespace Jackie {
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace Jackie {
     internal class Program {
 
         static List<Year> years = new List<Year>();
