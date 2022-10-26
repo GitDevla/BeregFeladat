@@ -28,10 +28,11 @@ namespace WinForms
             if (birthPlace_input.SelectedIndex == -1) hibak.Add("Születési hely");
             if(hibak.Count != 0)
             {
-                MessageBox.Show("A követkető adatok nincsenek megadva: " + string.Join(", ", hibak));
+                MessageBox.Show("A követkető adatok nincsenek megadva: " + string.Join(", ", hibak)
+                    ,"Hiba",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("Minden Jó");
+            MessageBox.Show("Minden Jó","OK",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }
