@@ -30,7 +30,7 @@ namespace atletikaGUI {
             this.label2 = new System.Windows.Forms.Label();
             this.listBox_events = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_placement = new System.Windows.Forms.NumericUpDown();
             this.button_search = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@ namespace atletikaGUI {
             this.label_name = new System.Windows.Forms.Label();
             this.label_score = new System.Windows.Forms.Label();
             this.label_nation = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_placement)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,6 +72,7 @@ namespace atletikaGUI {
             this.button_nations.TabIndex = 2;
             this.button_nations.Text = "aranyos - nemzetek";
             this.button_nations.UseVisualStyleBackColor = false;
+            this.button_nations.Click += new System.EventHandler(this.button_nations_Click);
             // 
             // label2
             // 
@@ -100,23 +101,18 @@ namespace atletikaGUI {
             this.label3.TabIndex = 5;
             this.label3.Text = "Válassza ki az érmes helyezést:";
             // 
-            // numericUpDown1
+            // numericUpDown_placement
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(349, 191);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDown_placement.Location = new System.Drawing.Point(349, 191);
+            this.numericUpDown_placement.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(63, 27);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDown_placement.Name = "numericUpDown_placement";
+            this.numericUpDown_placement.Size = new System.Drawing.Size(63, 27);
+            this.numericUpDown_placement.TabIndex = 6;
+            this.numericUpDown_placement.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -131,6 +127,7 @@ namespace atletikaGUI {
             this.button_search.TabIndex = 7;
             this.button_search.Text = "Keresés";
             this.button_search.UseVisualStyleBackColor = false;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
             // label4
             // 
@@ -213,7 +210,7 @@ namespace atletikaGUI {
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button_search);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDown_placement);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBox_events);
             this.Controls.Add(this.label2);
@@ -222,11 +219,11 @@ namespace atletikaGUI {
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkBlue;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Window";
             this.Text = "Atlétika";
             this.Load += new System.EventHandler(this.Window_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_placement)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +237,7 @@ namespace atletikaGUI {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox_events;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_placement;
         private System.Windows.Forms.Button button_search;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
