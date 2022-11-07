@@ -225,6 +225,7 @@ namespace atletikaGUI {
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Window";
             this.Text = "Atlétika";
+            this.Load += new System.EventHandler(this.Window_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
