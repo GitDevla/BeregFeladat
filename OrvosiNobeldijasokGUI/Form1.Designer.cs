@@ -53,6 +53,7 @@ namespace OrvosiNobeldijasokGUI {
             this.button_save.TabIndex = 1;
             this.button_save.Text = "Adatok mentése";
             this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
             // textBox_year
             // 
@@ -128,6 +129,7 @@ namespace OrvosiNobeldijasokGUI {
             this.Controls.Add(this.label1);
             this.Name = "Window";
             this.Text = "Orvosi Nobel-díjasok";
+            this.Load += new System.EventHandler(this.Window_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
