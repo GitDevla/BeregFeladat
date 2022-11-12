@@ -31,6 +31,14 @@ namespace OrvosiNobeldijasokGUI {
                 Country = textBox_country.Text
             };
             addAward(award);
+            clearInputFields();
+        }
+
+        private void clearInputFields() {
+            textBox_year.Clear();
+            textBox_name.Clear();
+            textBox_birthDate.Clear();
+            textBox_country.Clear();
         }
 
         private string testUserInput() {
