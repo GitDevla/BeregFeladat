@@ -31,6 +31,7 @@ namespace Hazi_Gyumolcs {
         public int NonQuery(MySqlCommand query) {
             try {
                 connection.Open();
+                query.Connection = connection;
                 return query.ExecuteNonQuery();
             } finally {
                 connection.Close();

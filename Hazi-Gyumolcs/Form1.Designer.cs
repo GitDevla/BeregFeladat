@@ -56,6 +56,7 @@ namespace Hazi_Gyumolcs {
             this.listBox_fruits.Name = "listBox_fruits";
             this.listBox_fruits.Size = new System.Drawing.Size(222, 343);
             this.listBox_fruits.TabIndex = 0;
+            this.listBox_fruits.SelectedIndexChanged += new System.EventHandler(this.listBox_fruits_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -165,9 +166,19 @@ namespace Hazi_Gyumolcs {
             0,
             0,
             0});
+            this.numericUpDown_price.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown_price.Name = "numericUpDown_price";
             this.numericUpDown_price.Size = new System.Drawing.Size(114, 29);
             this.numericUpDown_price.TabIndex = 12;
+            this.numericUpDown_price.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDown_quantity
             // 
@@ -177,9 +188,19 @@ namespace Hazi_Gyumolcs {
             0,
             0,
             0});
+            this.numericUpDown_quantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown_quantity.Name = "numericUpDown_quantity";
             this.numericUpDown_quantity.Size = new System.Drawing.Size(114, 29);
             this.numericUpDown_quantity.TabIndex = 13;
+            this.numericUpDown_quantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // button_create
             // 
@@ -189,6 +210,7 @@ namespace Hazi_Gyumolcs {
             this.button_create.TabIndex = 14;
             this.button_create.Text = "Gyümölcs létrehozása";
             this.button_create.UseVisualStyleBackColor = true;
+            this.button_create.Click += new System.EventHandler(this.button_create_Click);
             // 
             // button_update
             // 
@@ -198,6 +220,7 @@ namespace Hazi_Gyumolcs {
             this.button_update.TabIndex = 15;
             this.button_update.Text = "Gyümölcs módosítása";
             this.button_update.UseVisualStyleBackColor = true;
+            this.button_update.Click += new System.EventHandler(this.button_update_Click);
             // 
             // button_delete
             // 
@@ -207,6 +230,7 @@ namespace Hazi_Gyumolcs {
             this.button_delete.TabIndex = 16;
             this.button_delete.Text = "Gyümölcs törtése";
             this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
             // Window
             // 
@@ -221,6 +245,7 @@ namespace Hazi_Gyumolcs {
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Window";
             this.Text = "Gyümölcsök admin panel";
+            this.Load += new System.EventHandler(this.Window_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_price)).EndInit();
