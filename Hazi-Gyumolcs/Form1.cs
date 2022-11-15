@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Hazi_Gyumolcs {
     public partial class Window : Form {
@@ -44,7 +37,7 @@ namespace Hazi_Gyumolcs {
             var from = (Fruit)listBox_fruits.SelectedItem;
             if (from is null) return;
             var to = createFruitFromInput();
-            updateFruit(from,to);
+            updateFruit(from, to);
             updateList();
         }
 
@@ -58,11 +51,8 @@ namespace Hazi_Gyumolcs {
         /* CRUDs */
 
         private void createFruit(Fruit fruit) {
-            var cmd = new MySqlCommand("INSERT INTO `gyumolcs` (`nev`, `egysegar`, `mennyiseg`) VALUES (@name, @price, @quantity);");
-            cmd.Parameters.AddWithValue("@name", fruit.Name);
-            cmd.Parameters.AddWithValue("@price", fruit.Price);
-            cmd.Parameters.AddWithValue("@quantity", fruit.Quantity);
-            database.NonQuery(cmd);
+            database.Query("INSERT INTO `gyumolcs` (`nev`, `egysegar`, `mennyiseg`) VALUES (@1, @2, @3);"
+                , fruit.Name, fruit.Price, fruit.Quantity);
         }
 
         private List<Fruit> getAllFruits() {
@@ -78,24 +68,18 @@ namespace Hazi_Gyumolcs {
             return fruits;
         }
 
-        private void updateFruit(Fruit from,Fruit to) {
-            var cmd = new MySqlCommand("UPDATE `gyumolcs` SET `nev` = @name, `egysegar` = @price, `mennyiseg` = @quantity WHERE `gyumolcs`.`id` = @id;");
-            cmd.Parameters.AddWithValue("@id", from.Id);
-            cmd.Parameters.AddWithValue("@name", to.Name);
-            cmd.Parameters.AddWithValue("@price", to.Price);
-            cmd.Parameters.AddWithValue("@quantity", to.Quantity);
-            database.NonQuery(cmd);
+        private void updateFruit(Fruit from, Fruit to) {
+            database.Query("UPDATE `gyumolcs` SET `nev` = @1, `egysegar` = @2, `mennyiseg` = @3 WHERE `gyumolcs`.`id` = @id;",
+                from.Id, to.Name, to.Price, to.Quantity);
         }
 
         private void removeFruit(Fruit fruit) {
-            var cmd = new MySqlCommand("DELETE FROM gyumolcs WHERE `gyumolcs`.`id` = @id;");
-            cmd.Parameters.AddWithValue("@id", fruit.Id);
-            database.NonQuery(cmd);
+            database.Query("DELETE FROM gyumolcs WHERE `gyumolcs`.`id` = @1;", fruit.Id);
         }
 
         /* Helpers */
         private void Alert(string alert) {
-            MessageBox.Show(alert,"Hiba");
+            MessageBox.Show(alert, "Hiba");
         }
 
         private void updateList() {

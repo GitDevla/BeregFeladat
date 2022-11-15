@@ -1,41 +1,33 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hazi_Gyumolcs {
     class SQL {
         private readonly MySqlConnection connection;
         public SQL(string url, string username, string password, string databaseName) {
-            var conString = new MySqlConnectionStringBuilder();
-            conString.Server = url;
-            conString.UserID = username;
-            conString.Password = password;
-            conString.Database = databaseName;
-            connection = new MySqlConnection(conString.ConnectionString);
+            connection = new MySqlConnection($"Server={url};Database={databaseName};Uid={username};Pwd={password};");
+        }
+
+        private QueryResponse fetch(MySqlCommand cmd) {
+            try {
+                connection.Open();
+                cmd.Connection = connection;
+                return new QueryResponse(cmd.ExecuteReader());
+            } finally {
+                connection.Close();
+            }
         }
 
         public QueryResponse Query(string query) {
-            try {
-                connection.Open();
-                MySqlCommand command = connection.CreateCommand();
-                command.CommandText = query;
-                return new QueryResponse(command.ExecuteReader());
-            } finally {
-                connection.Close();
-            }
+            return fetch(new MySqlCommand(query));
         }
 
-        public int NonQuery(MySqlCommand query) {
-            try {
-                connection.Open();
-                query.Connection = connection;
-                return query.ExecuteNonQuery();
-            } finally {
-                connection.Close();
-            }
+        public QueryResponse Query(string query, params object[] args) {
+            MySqlCommand cmd = new MySqlCommand(query);
+            for (int i = 0; i < args.Length; i++)
+                cmd.Parameters.AddWithValue($"@{i + 1}", args[i]);
+            return fetch(cmd);
         }
     }
 
