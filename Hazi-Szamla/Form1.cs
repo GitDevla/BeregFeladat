@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Hazi_Szamla
 {
-    public partial class Form1 : Form
+    public partial class window : Form
     {
-        public Form1()
+        public window()
         {
             InitializeComponent();
         }
