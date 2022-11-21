@@ -39,9 +39,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker_date = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_create = new System.Windows.Forms.Button();
+            this.button_update = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_balance)).BeginInit();
             this.SuspendLayout();
@@ -60,9 +60,9 @@
             // 
             // groupBox
             // 
-            this.groupBox.Controls.Add(this.button3);
-            this.groupBox.Controls.Add(this.button2);
-            this.groupBox.Controls.Add(this.button1);
+            this.groupBox.Controls.Add(this.button_delete);
+            this.groupBox.Controls.Add(this.button_update);
+            this.groupBox.Controls.Add(this.button_create);
             this.groupBox.Controls.Add(this.label5);
             this.groupBox.Controls.Add(this.dateTimePicker_date);
             this.groupBox.Controls.Add(this.label4);
@@ -164,35 +164,35 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Ft";
             // 
-            // button1
+            // button_create
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.Location = new System.Drawing.Point(29, 255);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(417, 51);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Új számla készitése";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_create.BackColor = System.Drawing.Color.DimGray;
+            this.button_create.Location = new System.Drawing.Point(29, 255);
+            this.button_create.Name = "button_create";
+            this.button_create.Size = new System.Drawing.Size(417, 51);
+            this.button_create.TabIndex = 9;
+            this.button_create.Text = "Új számla készitése";
+            this.button_create.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // button_update
             // 
-            this.button2.BackColor = System.Drawing.Color.DimGray;
-            this.button2.Location = new System.Drawing.Point(29, 312);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(417, 51);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Számla módositása";
-            this.button2.UseVisualStyleBackColor = false;
+            this.button_update.BackColor = System.Drawing.Color.DimGray;
+            this.button_update.Location = new System.Drawing.Point(29, 312);
+            this.button_update.Name = "button_update";
+            this.button_update.Size = new System.Drawing.Size(417, 51);
+            this.button_update.TabIndex = 10;
+            this.button_update.Text = "Számla módositása";
+            this.button_update.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // button_delete
             // 
-            this.button3.BackColor = System.Drawing.Color.DimGray;
-            this.button3.Location = new System.Drawing.Point(29, 369);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(417, 51);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Számla törlése";
-            this.button3.UseVisualStyleBackColor = false;
+            this.button_delete.BackColor = System.Drawing.Color.DimGray;
+            this.button_delete.Location = new System.Drawing.Point(29, 369);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(417, 51);
+            this.button_delete.TabIndex = 11;
+            this.button_delete.Text = "Számla törlése";
+            this.button_delete.UseVisualStyleBackColor = false;
             // 
             // window
             // 
@@ -218,9 +218,9 @@
 
         private System.Windows.Forms.ListBox listBox_checks;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button button_update;
+        private System.Windows.Forms.Button button_create;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker_date;
         private System.Windows.Forms.Label label4;
