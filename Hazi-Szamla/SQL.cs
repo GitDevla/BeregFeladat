@@ -13,7 +13,7 @@ namespace Hazi_Szamla
         private readonly MySqlConnection connection;
         public SQL(string url, string username, string password, string databaseName)
         {
-            connection = new MySqlConnection($"Server={url};Database={databaseName};Uid={username};Pwd={password};");
+            connection = new MySqlConnection($"Server={url};Database={databaseName};Uid={username};Pwd={password};Convert Zero Datetime=True;");
         }
 
         private QueryResponse fetch(MySqlCommand cmd)
