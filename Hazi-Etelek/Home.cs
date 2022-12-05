@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hazi_Etelek {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class Home : Form {
+        public Home() {
             InitializeComponent();
+        }
+
+        private void Home_Load(object sender, EventArgs e) {
+
         }
     }
 }
