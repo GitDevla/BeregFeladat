@@ -45,7 +45,10 @@ namespace Hazi_Etelek {
             db.Query("DELETE FROM etel WHERE `etel`.`id` = @1;", Id);
         }
 
-
+        public Type GetTType(SQL db) {
+            var res = db.Query("Select * FROM `kategoria` where id = @1;",Type);
+            return new Type(int.Parse(res.Values[0][0]), res.Values[0][1]);
+        }
         public override string ToString() {
             return Name;
         }

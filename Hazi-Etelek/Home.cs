@@ -43,7 +43,7 @@ namespace Hazi_Etelek {
         private void listBox_foods_SelectedIndexChanged(object sender, EventArgs e) {
             var selected = (Food)listBox_foods.SelectedItem;
             textBox_name.Text = selected.Name;
-            textBox_type.Text = selected.Type.ToString();
+            textBox_type.Text = selected.GetTType(Program.database).Name;
             checkBox_isVegetarian.Checked = selected.Vegetarian;
             numericUpDown_price.Value = selected.Price;
         }
