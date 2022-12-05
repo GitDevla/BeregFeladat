@@ -68,6 +68,7 @@ namespace Hazi_Etelek {
             this.listBox_foods.Name = "listBox_foods";
             this.listBox_foods.Size = new System.Drawing.Size(134, 339);
             this.listBox_foods.TabIndex = 1;
+            this.listBox_foods.SelectedIndexChanged += new System.EventHandler(this.listBox_foods_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -97,6 +98,7 @@ namespace Hazi_Etelek {
             this.comboBox_types.Name = "comboBox_types";
             this.comboBox_types.Size = new System.Drawing.Size(307, 32);
             this.comboBox_types.TabIndex = 0;
+            this.comboBox_types.SelectedIndexChanged += new System.EventHandler(this.comboBox_types_SelectedIndexChanged);
             // 
             // label1
             // 
