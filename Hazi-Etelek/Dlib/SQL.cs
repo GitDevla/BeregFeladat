@@ -30,6 +30,16 @@ namespace DLib {
                 cmd.Parameters.AddWithValue($"@{i + 1}", args[i]);
             return fetch(cmd);
         }
+
+        public bool TestConnection() {
+            try {
+                var response = Query("show tables;");
+                if(response.Values.Count == 0) return false;
+                return true;
+            } catch {
+                return false;
+            }
+        }
     }
 
     class QueryResponse {
