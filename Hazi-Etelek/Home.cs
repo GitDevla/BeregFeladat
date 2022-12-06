@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using DLib;
 
 namespace Hazi_Etelek {
     public partial class Home : Form {
@@ -46,6 +47,30 @@ namespace Hazi_Etelek {
             textBox_type.Text = selected.GetTType(Program.database).Name;
             checkBox_isVegetarian.Checked = selected.Vegetarian;
             numericUpDown_price.Value = selected.Price;
+        }
+
+        private void button_delete_Click(object sender, EventArgs e) {
+            var selected = (Food)listBox_foods.SelectedItem;
+            if (selected is null) {
+                FormsUtil.Error("Nincs kiválasztva semmi");
+                return;
+            }
+            var res = MessageBox.Show($"Biztos benne hogy kitörli a \"{selected.Name}\"-t ?", "", MessageBoxButtons.YesNo);
+            if(res == DialogResult.Yes) {
+                selected.DBDelete(Program.database);
+                LoadFoods();
+                listBox_foods.SelectedIndex = 0;
+            }
+        }
+
+        private void button_edit_Click(object sender, EventArgs e) {
+            var selected = (Food)listBox_foods.SelectedItem;
+            if (selected is null) {
+                FormsUtil.Error("Nincs kiválasztva semmi");
+                return;
+            }
+            new Modify(selected).ShowDialog();
+            LoadFoods();
         }
     }
 }

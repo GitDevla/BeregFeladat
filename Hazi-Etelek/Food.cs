@@ -37,12 +37,12 @@ namespace Hazi_Etelek {
         }
 
         public void DBUpdate(SQL db, Food to) {
-            db.Query("UPDATE `etelek` SET `etel` = @2, `kat_id` = @3, `vega` = @4, `ar` = @5 WHERE `etel`.`id` = @1;",
+            db.Query("UPDATE `etelek` SET `etel` = @2, `kat_id` = @3, `vega` = @4, `ar` = @5 WHERE `id` = @1;",
                 Id, to.Name, to.Type, to.Vegetarian, to.Price);
         }
 
         public void DBDelete(SQL db) {
-            db.Query("DELETE FROM etel WHERE `etel`.`id` = @1;", Id);
+            db.Query("DELETE FROM etelek WHERE `id` = @1;", Id);
         }
 
         public Type GetTType(SQL db) {
