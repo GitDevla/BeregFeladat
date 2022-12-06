@@ -72,5 +72,10 @@ namespace Hazi_Etelek {
             new Modify(selected).ShowDialog();
             LoadFoods();
         }
+
+        private void button_new_Click(object sender, EventArgs e) {
+            new Create().ShowDialog();
+            LoadFoods();
+        }
     }
 }

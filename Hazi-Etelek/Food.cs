@@ -18,7 +18,7 @@ namespace Hazi_Etelek {
         }
 
         public void DBCreate(SQL db) {
-            db.Query("INSERT INTO `etelek` (`etel`, `kat_id`, `vega`, `ar`) VALUES ('@1', '@2', '@3', '@4');"
+            db.Query("INSERT INTO `etelek` (`id`, `etel`, `kat_id`, `vega`, `ar`) VALUES (null, @1, @2, @3, @4);"
                 , Name, Type, Vegetarian, Price);
         }
 
