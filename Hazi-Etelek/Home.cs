@@ -49,6 +49,14 @@ namespace Hazi_Etelek {
             numericUpDown_price.Value = selected.Price;
         }
 
+        private void clearOuput()
+        {
+            textBox_name.Text = "";
+            textBox_type.Text = "";
+            checkBox_isVegetarian.Checked = false;
+            numericUpDown_price.Value = 0;
+        }
+
         private void button_delete_Click(object sender, EventArgs e) {
             var selected = (Food)listBox_foods.SelectedItem;
             if (selected is null) {
@@ -59,7 +67,7 @@ namespace Hazi_Etelek {
             if(res == DialogResult.Yes) {
                 selected.DBDelete(Program.database);
                 LoadFoods();
-                listBox_foods.SelectedIndex = 0;
+                clearOuput();
             }
         }
 
@@ -76,6 +84,7 @@ namespace Hazi_Etelek {
         private void button_new_Click(object sender, EventArgs e) {
             new Create().ShowDialog();
             LoadFoods();
+            listBox_foods.SelectedIndex = listBox_foods.Items.Count - 1;
         }
     }
 }

@@ -110,12 +110,22 @@ namespace Hazi_Etelek {
             0,
             0,
             0});
+            this.numericUpDown_price.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown_price.Name = "numericUpDown_price";
             this.numericUpDown_price.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDown_price.Size = new System.Drawing.Size(120, 29);
             this.numericUpDown_price.TabIndex = 7;
             this.numericUpDown_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown_price.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.numericUpDown_price.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label5
             // 
@@ -183,7 +193,7 @@ namespace Hazi_Etelek {
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Create";
             this.Text = "Create";
             this.groupBox1.ResumeLayout(false);

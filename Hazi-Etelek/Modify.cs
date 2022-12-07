@@ -34,6 +34,12 @@ namespace Hazi_Etelek {
         }
 
         private void button_edit_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(textBox_name.Text)
+                || comboBox_types.SelectedItem is null)
+            {
+                DLib.FormsUtil.Error("Valmi nincs kitöltve");
+                return;
+            }
             var food = new Food(0,
                 textBox_name.Text,
                 ((Type)comboBox_types.SelectedItem).Id,

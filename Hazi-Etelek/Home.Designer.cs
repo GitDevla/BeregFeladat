@@ -26,7 +26,6 @@ namespace Hazi_Etelek {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button_typeEdit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_types = new System.Windows.Forms.ComboBox();
             this.listBox_foods = new System.Windows.Forms.ListBox();
@@ -50,7 +49,6 @@ namespace Hazi_Etelek {
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button_typeEdit);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox_types);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -58,16 +56,6 @@ namespace Hazi_Etelek {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(560, 80);
             this.panel1.TabIndex = 0;
-            // 
-            // button_typeEdit
-            // 
-            this.button_typeEdit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_typeEdit.Location = new System.Drawing.Point(439, 25);
-            this.button_typeEdit.Name = "button_typeEdit";
-            this.button_typeEdit.Size = new System.Drawing.Size(112, 32);
-            this.button_typeEdit.TabIndex = 1;
-            this.button_typeEdit.Text = "Módosítás";
-            this.button_typeEdit.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -83,7 +71,7 @@ namespace Hazi_Etelek {
             this.comboBox_types.FormattingEnabled = true;
             this.comboBox_types.Location = new System.Drawing.Point(114, 25);
             this.comboBox_types.Name = "comboBox_types";
-            this.comboBox_types.Size = new System.Drawing.Size(307, 32);
+            this.comboBox_types.Size = new System.Drawing.Size(434, 32);
             this.comboBox_types.TabIndex = 0;
             this.comboBox_types.SelectedIndexChanged += new System.EventHandler(this.comboBox_types_SelectedIndexChanged);
             // 
@@ -274,7 +262,6 @@ namespace Hazi_Etelek {
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button_typeEdit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_types;
         private System.Windows.Forms.ListBox listBox_foods;

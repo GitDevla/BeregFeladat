@@ -110,12 +110,22 @@ namespace Hazi_Etelek {
             0,
             0,
             0});
+            this.numericUpDown_price.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown_price.Name = "numericUpDown_price";
             this.numericUpDown_price.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDown_price.Size = new System.Drawing.Size(120, 29);
             this.numericUpDown_price.TabIndex = 7;
             this.numericUpDown_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDown_price.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.numericUpDown_price.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label5
             // 
