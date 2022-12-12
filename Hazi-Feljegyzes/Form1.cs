@@ -38,8 +38,8 @@ namespace Hazi_Feljegyzes
 
                 var date = dateTimePicker_date.Value;
                 var path = saveFileDialog.FileName;
-                File.WriteAllText(path, $"====={date}=====\n");
-                File.AppendAllText(path,richTextBox.Text);
+                File.AppendAllText(path, $"\n====={date}=====\n");
+                File.AppendAllLines(path,richTextBox.Text.Split('\n').Where(i=>!i.Contains("=====")));
                 richTextBox.Text = File.ReadAllText(path);
             }
         }
