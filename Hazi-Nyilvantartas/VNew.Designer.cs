@@ -25,16 +25,16 @@ namespace Hazi_Nyilvantartas {
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.textBox_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.button_picture = new System.Windows.Forms.Button();
             this.button_ok = new System.Windows.Forms.Button();
             this.button_cancel = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -56,17 +56,7 @@ namespace Hazi_Nyilvantartas {
             this.groupBox1.Size = new System.Drawing.Size(534, 388);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kiválasztott felhasznaló";
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(317, 25);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 6;
-            this.pictureBox.TabStop = false;
+            this.groupBox1.Text = "Új felhasznaló";
             // 
             // label1
             // 
@@ -113,9 +103,9 @@ namespace Hazi_Nyilvantartas {
             this.label3.TabIndex = 8;
             this.label3.Text = "Kiválasztott kép:";
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog";
+            this.openFileDialog.Filter = "Kép|*.jpg;*.jpeg;*.png;*.gif";
             // 
             // button_picture
             // 
@@ -124,6 +114,7 @@ namespace Hazi_Nyilvantartas {
             this.button_picture.Size = new System.Drawing.Size(75, 31);
             this.button_picture.TabIndex = 9;
             this.button_picture.UseVisualStyleBackColor = true;
+            this.button_picture.Click += new System.EventHandler(this.button_picture_Click);
             // 
             // button_ok
             // 
@@ -133,6 +124,7 @@ namespace Hazi_Nyilvantartas {
             this.button_ok.TabIndex = 10;
             this.button_ok.Text = "Létrehozás";
             this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // button_cancel
             // 
@@ -142,6 +134,17 @@ namespace Hazi_Nyilvantartas {
             this.button_cancel.TabIndex = 11;
             this.button_cancel.Text = "Mégsem";
             this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(317, 25);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 6;
+            this.pictureBox.TabStop = false;
             // 
             // VNew
             // 
@@ -172,6 +175,6 @@ namespace Hazi_Nyilvantartas {
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_ok;
         private System.Windows.Forms.Button button_picture;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

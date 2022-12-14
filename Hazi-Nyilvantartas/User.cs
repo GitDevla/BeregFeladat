@@ -21,6 +21,10 @@ namespace Hazi_Nyilvantartas {
                 , Name, Birth);
         }
 
+        public static int LastId() {
+            return int.Parse(db.Query("select LAST_INSERT_ID()").Values[0][0]);
+        }
+
         static public List<User> DBRead() {
             var res = db.Query($"Select * FROM {dbTable};");
             var list = new List<User>();

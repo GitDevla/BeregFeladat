@@ -42,7 +42,8 @@ namespace Hazi_Nyilvantartas {
         }
 
         private void újToolStripMenuItem_Click(object sender, EventArgs e) {
-            var res = new VNew().ShowDialog();
+            new VNew().ShowDialog();
+            LoadUsers();
         }
     }
 }
