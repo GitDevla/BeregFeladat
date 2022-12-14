@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hazi_Nyilvantartas {
@@ -21,16 +14,15 @@ namespace Hazi_Nyilvantartas {
             textBox_name.Text = user.Name;
             dateTimePicker.Value = user.Birth;
             if (File.Exists(".\\img\\" + user.Id))
-                pictureBox.Image = Image.FromFile(".\\img\\" + user.Id);
+                pictureBox.ImageLocation = ".\\img\\" + user.Id;
             else
-                pictureBox.Image = Image.FromFile(".\\img\\missing.png");
+                pictureBox.ImageLocation = ".\\img\\ missing.png";
         }
 
         private void button_picture_Click(object sender, EventArgs e) {
-            pictureBox.Image.Dispose();
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
             if (!File.Exists(openFileDialog.FileName)) return;
-            pictureBox.Image = Image.FromFile(openFileDialog.FileName);
+            pictureBox.ImageLocation = openFileDialog.FileName;
             button_picture.Text = openFileDialog.SafeFileName;
         }
 
@@ -46,8 +38,10 @@ namespace Hazi_Nyilvantartas {
             }
             var newUser = new User(0, textBox_name.Text, dateTimePicker.Value);
             user.DBUpdate(newUser);
-            File.Delete(".\\img\\" + user.Id);
-            pictureBox.Image.Save(".\\img\\" + user.Id);
+            if (openFileDialog.SafeFileName != "") {
+                File.Delete(".\\img\\" + user.Id);
+                pictureBox.Image.Save(".\\img\\" + user.Id);
+            }
             Close();
         }
     }

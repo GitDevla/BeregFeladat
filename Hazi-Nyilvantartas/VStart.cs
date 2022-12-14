@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -23,16 +22,15 @@ namespace Hazi_Nyilvantartas {
             textBox_name.Text = user.Name;
             dateTimePicker.Value = user.Birth;
             if (File.Exists(".\\img\\" + user.Id))
-                pictureBox.Image = Image.FromFile(".\\img\\" + user.Id);
+                pictureBox.ImageLocation = ".\\img\\" + user.Id;
             else
-                pictureBox.Image = Image.FromFile(".\\img\\missing.png");
+                pictureBox.ImageLocation = ".\\img\\missing.png";
         }
 
         private void Clear() {
             textBox_name.Text = "";
             dateTimePicker.Value = DateTime.Today;
-            pictureBox.Image.Dispose();
-            pictureBox.Image = null;
+            pictureBox.ImageLocation = null;
         }
 
         private void listBox_users_SelectedIndexChanged(object sender, EventArgs e) {
@@ -60,7 +58,6 @@ namespace Hazi_Nyilvantartas {
         private void módosítToolStripMenuItem_Click(object sender, EventArgs e) {
             var selected = (User)listBox_users.SelectedItem;
             if (selected is null) return;
-            pictureBox.Image.Dispose();
             new VEdit(selected).ShowDialog();
             Clear();
             LoadUsers();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -25,7 +24,7 @@ namespace Hazi_Nyilvantartas {
         private void button_picture_Click(object sender, EventArgs e) {
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
             if (!File.Exists(openFileDialog.FileName)) return;
-            pictureBox.Image = Image.FromFile(openFileDialog.FileName);
+            pictureBox.ImageLocation = openFileDialog.FileName;
             button_picture.Text = openFileDialog.SafeFileName;
         }
 
