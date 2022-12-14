@@ -32,7 +32,13 @@ namespace Hazi_Nyilvantartas {
                 pictureBox.Image = Image.FromFile(".\\img\\" + user.Id);
             else
                 pictureBox.Image = Image.FromFile(".\\img\\missing.png");
+        }
 
+        private void Clear() {
+            textBox_name.Text = "";
+            dateTimePicker.Value = DateTime.Today;
+            pictureBox.Image.Dispose();
+            pictureBox.Image = null;
         }
 
         private void listBox_users_SelectedIndexChanged(object sender, EventArgs e) {
@@ -43,6 +49,17 @@ namespace Hazi_Nyilvantartas {
 
         private void újToolStripMenuItem_Click(object sender, EventArgs e) {
             new VNew().ShowDialog();
+            LoadUsers();
+        }
+
+        private void törölToolStripMenuItem_Click(object sender, EventArgs e) {
+            var selected = (User)listBox_users.SelectedItem;
+            if (selected is null) return;
+            var res = MessageBox.Show($"Biztosan ki akarod törölni a {selected.Name} nevű felhasználót?","U sure",MessageBoxButtons.YesNo);
+            if (res != DialogResult.Yes) return;
+            Clear();
+            selected.DBDelete();
+            File.Delete(".\\img\\" + selected.Id);
             LoadUsers();
         }
     }

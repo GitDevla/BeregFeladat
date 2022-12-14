@@ -32,9 +32,9 @@ namespace Hazi_Nyilvantartas {
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.módosítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.törölToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -125,16 +125,6 @@ namespace Hazi_Nyilvantartas {
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kiválasztott felhasznaló";
             // 
-            // pictureBox
-            // 
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(317, 25);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 6;
-            this.pictureBox.TabStop = false;
-            // 
             // módosítToolStripMenuItem
             // 
             this.módosítToolStripMenuItem.Name = "módosítToolStripMenuItem";
@@ -146,6 +136,17 @@ namespace Hazi_Nyilvantartas {
             this.törölToolStripMenuItem.Name = "törölToolStripMenuItem";
             this.törölToolStripMenuItem.Size = new System.Drawing.Size(45, 19);
             this.törölToolStripMenuItem.Text = "Töröl";
+            this.törölToolStripMenuItem.Click += new System.EventHandler(this.törölToolStripMenuItem_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(317, 25);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 6;
+            this.pictureBox.TabStop = false;
             // 
             // VStart
             // 
