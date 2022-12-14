@@ -40,5 +40,9 @@ namespace Hazi_Nyilvantartas {
             if (selected is null) return;
             DisplayUser(selected);
         }
+
+        private void újToolStripMenuItem_Click(object sender, EventArgs e) {
+            var res = new VNew().ShowDialog();
+        }
     }
 }

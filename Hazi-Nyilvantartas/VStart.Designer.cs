@@ -33,7 +33,6 @@ namespace Hazi_Nyilvantartas {
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.módosítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.törölToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
@@ -71,6 +70,7 @@ namespace Hazi_Nyilvantartas {
             this.újToolStripMenuItem.Name = "újToolStripMenuItem";
             this.újToolStripMenuItem.Size = new System.Drawing.Size(30, 19);
             this.újToolStripMenuItem.Text = "Új";
+            this.újToolStripMenuItem.Click += new System.EventHandler(this.újToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -182,7 +182,6 @@ namespace Hazi_Nyilvantartas {
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ToolStripMenuItem módosítToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem törölToolStripMenuItem;
     }
