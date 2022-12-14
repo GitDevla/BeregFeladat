@@ -130,6 +130,7 @@ namespace Hazi_Nyilvantartas {
             this.módosítToolStripMenuItem.Name = "módosítToolStripMenuItem";
             this.módosítToolStripMenuItem.Size = new System.Drawing.Size(63, 19);
             this.módosítToolStripMenuItem.Text = "Módosít";
+            this.módosítToolStripMenuItem.Click += new System.EventHandler(this.módosítToolStripMenuItem_Click);
             // 
             // törölToolStripMenuItem
             // 

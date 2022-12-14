@@ -1,6 +1,6 @@
 ﻿
 namespace Hazi_Nyilvantartas {
-    partial class VNew {
+    partial class VEdit {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,11 +29,11 @@ namespace Hazi_Nyilvantartas {
             this.button_ok = new System.Windows.Forms.Button();
             this.button_picture = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.textBox_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -53,10 +53,10 @@ namespace Hazi_Nyilvantartas {
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(534, 388);
-            this.groupBox1.TabIndex = 7;
+            this.groupBox1.Size = new System.Drawing.Size(561, 394);
+            this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Új felhasznaló";
+            this.groupBox1.Text = "Felhasznaló módosítása";
             // 
             // button_cancel
             // 
@@ -74,7 +74,7 @@ namespace Hazi_Nyilvantartas {
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(159, 37);
             this.button_ok.TabIndex = 10;
-            this.button_ok.Text = "Létrehozás";
+            this.button_ok.Text = "Módosítás";
             this.button_ok.UseVisualStyleBackColor = true;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
@@ -95,16 +95,6 @@ namespace Hazi_Nyilvantartas {
             this.label3.Size = new System.Drawing.Size(124, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Kiválasztott kép:";
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(317, 25);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 6;
-            this.pictureBox.TabStop = false;
             // 
             // label1
             // 
@@ -142,20 +132,31 @@ namespace Hazi_Nyilvantartas {
             this.label2.TabIndex = 4;
             this.label2.Text = "Született:";
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(317, 25);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 6;
+            this.pictureBox.TabStop = false;
+            // 
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Kép|*.JPG;*.JPEG;*.PNG";
             // 
-            // VNew
+            // VEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 388);
+            this.ClientSize = new System.Drawing.Size(561, 394);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "VNew";
-            this.Text = "Új";
+            this.Name = "VEdit";
+            this.Text = "Módosít";
+            this.Load += new System.EventHandler(this.VEdit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -166,15 +167,15 @@ namespace Hazi_Nyilvantartas {
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.Button button_ok;
+        private System.Windows.Forms.Button button_picture;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.TextBox textBox_name;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button_cancel;
-        private System.Windows.Forms.Button button_ok;
-        private System.Windows.Forms.Button button_picture;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

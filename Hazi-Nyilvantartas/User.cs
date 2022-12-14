@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 namespace Hazi_Nyilvantartas {
-    class User {
+    public class User {
         static public SQL db;
         private static readonly string dbTable = "users";
 

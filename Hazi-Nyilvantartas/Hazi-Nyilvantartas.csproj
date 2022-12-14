@@ -84,6 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VEdit.Designer.cs">
+      <DependentUpon>VEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="VNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VEdit.resx">
+      <DependentUpon>VEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VNew.resx">
       <DependentUpon>VNew.cs</DependentUpon>
     </EmbeddedResource>

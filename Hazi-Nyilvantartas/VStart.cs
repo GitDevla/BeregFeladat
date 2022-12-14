@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hazi_Nyilvantartas {
@@ -55,11 +49,20 @@ namespace Hazi_Nyilvantartas {
         private void törölToolStripMenuItem_Click(object sender, EventArgs e) {
             var selected = (User)listBox_users.SelectedItem;
             if (selected is null) return;
-            var res = MessageBox.Show($"Biztosan ki akarod törölni a {selected.Name} nevű felhasználót?","U sure",MessageBoxButtons.YesNo);
+            var res = MessageBox.Show($"Biztosan ki akarod törölni a {selected.Name} nevű felhasználót?", "U sure", MessageBoxButtons.YesNo);
             if (res != DialogResult.Yes) return;
             Clear();
             selected.DBDelete();
             File.Delete(".\\img\\" + selected.Id);
+            LoadUsers();
+        }
+
+        private void módosítToolStripMenuItem_Click(object sender, EventArgs e) {
+            var selected = (User)listBox_users.SelectedItem;
+            if (selected is null) return;
+            pictureBox.Image.Dispose();
+            new VEdit(selected).ShowDialog();
+            Clear();
             LoadUsers();
         }
     }

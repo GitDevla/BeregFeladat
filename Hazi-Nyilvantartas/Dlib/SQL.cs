@@ -1,10 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace DLib {
-    class SQL {
+    public class SQL {
         private readonly MySqlConnection connection;
         public SQL(string url, string username, string password, string databaseName) {
             connection = new MySqlConnection($"Server={url};Database={databaseName};Uid={username};Pwd={password};");
@@ -34,7 +32,7 @@ namespace DLib {
         public bool TestConnection() {
             try {
                 var response = Query("show tables;");
-                if(response.Values.Count == 0) return false;
+                if (response.Values.Count == 0) return false;
                 return true;
             } catch {
                 return false;
@@ -42,7 +40,7 @@ namespace DLib {
         }
     }
 
-    class QueryResponse {
+    public class QueryResponse {
         public readonly List<string> Headers = new List<string>();
         public readonly List<List<string>> Values = new List<List<string>>();
 
