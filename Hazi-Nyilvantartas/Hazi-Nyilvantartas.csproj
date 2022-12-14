@@ -87,11 +87,11 @@
     <Compile Include="User.cs" />
     <Compile Include="Dlib\FormsUtil.cs" />
     <Compile Include="Dlib\SQL.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="VStart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="VStart.Designer.cs">
+      <DependentUpon>VStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

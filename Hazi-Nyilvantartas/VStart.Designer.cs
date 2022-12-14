@@ -1,6 +1,6 @@
 ﻿
 namespace Hazi_Nyilvantartas {
-    partial class Form1 {
+    partial class VStart {
         /// <summary>
         /// Required designer variable.
         /// </summary>

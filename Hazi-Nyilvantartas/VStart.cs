@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hazi_Nyilvantartas {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class VStart : Form {
+        public VStart() {
             InitializeComponent();
         }
     }
