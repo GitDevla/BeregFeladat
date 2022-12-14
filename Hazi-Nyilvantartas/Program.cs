@@ -1,6 +1,7 @@
 ﻿using DLib;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace Hazi_Nyilvantartas {
             Application.SetCompatibleTextRenderingDefault(false);
             if (!database.TestConnection())
                 FormsUtil.FatalError("Adatbázis nincs csatlakoztatva vagy rosszul van beimportálva");
+            User.db = database;
             Application.Run(new VStart());
         }
     }

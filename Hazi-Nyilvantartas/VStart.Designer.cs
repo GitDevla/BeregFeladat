@@ -32,15 +32,13 @@ namespace Hazi_Nyilvantartas {
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.módosítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.törölToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_users
@@ -51,8 +49,9 @@ namespace Hazi_Nyilvantartas {
             this.listBox_users.Location = new System.Drawing.Point(0, 25);
             this.listBox_users.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox_users.Name = "listBox_users";
-            this.listBox_users.Size = new System.Drawing.Size(283, 321);
+            this.listBox_users.Size = new System.Drawing.Size(221, 238);
             this.listBox_users.TabIndex = 0;
+            this.listBox_users.SelectedIndexChanged += new System.EventHandler(this.listBox_users_SelectedIndexChanged);
             // 
             // menuStrip
             // 
@@ -63,7 +62,7 @@ namespace Hazi_Nyilvantartas {
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(812, 25);
+            this.menuStrip.Size = new System.Drawing.Size(749, 25);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -104,6 +103,7 @@ namespace Hazi_Nyilvantartas {
             // 
             // dateTimePicker
             // 
+            this.dateTimePicker.Enabled = false;
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker.Location = new System.Drawing.Point(125, 97);
             this.dateTimePicker.Name = "dateTimePicker";
@@ -112,29 +112,28 @@ namespace Hazi_Nyilvantartas {
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pictureBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dateTimePicker);
             this.groupBox1.Controls.Add(this.textBox_name);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(283, 25);
+            this.groupBox1.Location = new System.Drawing.Point(221, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(529, 321);
+            this.groupBox1.Size = new System.Drawing.Size(528, 238);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kiválasztott felhasznaló";
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(317, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(317, 25);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 6;
+            this.pictureBox.TabStop = false;
             // 
             // módosítToolStripMenuItem
             // 
@@ -148,28 +147,11 @@ namespace Hazi_Nyilvantartas {
             this.törölToolStripMenuItem.Size = new System.Drawing.Size(45, 19);
             this.törölToolStripMenuItem.Text = "Töröl";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(313, 245);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Kép kiválasztása:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(442, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // VStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 346);
+            this.ClientSize = new System.Drawing.Size(749, 263);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listBox_users);
             this.Controls.Add(this.menuStrip);
@@ -178,11 +160,12 @@ namespace Hazi_Nyilvantartas {
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "VStart";
             this.Text = "Start";
+            this.Load += new System.EventHandler(this.VStart_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,12 +181,10 @@ namespace Hazi_Nyilvantartas {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ToolStripMenuItem módosítToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem törölToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
     }
 }
 
