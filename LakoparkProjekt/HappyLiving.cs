@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,7 +47,15 @@ namespace LakoparkProjekt
                 }
                 
             }
-            
+           
+        }
+        public Lakopark hasFullyBuiltRoad()
+        {
+            for (int i = 0; i < Lakoparkok.Count; i++)
+            {
+                if (Lakoparkok[i].hasFullyBuiltRoad()) return Lakoparkok[i];
+            }
+            return null;
         }
     }
 }
