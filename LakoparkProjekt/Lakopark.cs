@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LakoparkProjekt
 {
-    internal class Lakopark
+    public class Lakopark
     {
         private int[,] hazak;
         private int maxHazSzam;
