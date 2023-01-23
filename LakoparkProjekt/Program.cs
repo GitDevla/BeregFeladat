@@ -19,6 +19,15 @@ namespace LakoparkProjekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                var a = Database.TestConnection();
+                if (!a) throw new Exception("Nem lehet csatlakozni az adatbázishoz");
+            }
+            catch (Exception e)
+            {
+                FormsUtil.FatalError(e.Message);
+            }
             Application.Run(new MainForm());
         }
     }
