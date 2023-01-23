@@ -8,7 +8,9 @@ namespace LakoparkProjekt
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
-        HappyLiving happyLiving = new HappyLiving("lakoparkok.txt");
+        //HappyLiving happyLiving = new HappyLiving("lakoparkok.txt");
+        HappyLiving happyLiving = new HappyLiving(Program.Database);
+
         int currIndex = 0;
         int imgSize = 50;
         public MainForm()
@@ -30,7 +32,7 @@ namespace LakoparkProjekt
 
             var date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
             var writer = new StreamWriter($"statisztika_{date}.txt");
-            writer.WriteLine($"Van-e olyan lakópark, amelyben van teljesen beépített utca?: {fullybuilt?.Nev?? "Nincs"}");
+            writer.WriteLine($"Van-e olyan lakópark, amelyben van teljesen beépített utca?: {fullybuilt?.Nev ?? "Nincs"}");
             writer.WriteLine($"Arányaiban melyik a legjobban beépített lakópark?: {best.Nev}");
             foreach (var park in happyLiving.Lakoparkok)
             {
@@ -71,8 +73,8 @@ namespace LakoparkProjekt
             var y = picBox.Location.Y / imgSize;
             var x = picBox.Location.X / imgSize;
             var puzzle = happyLiving.Lakoparkok[currIndex];
-                puzzle.Hazak[y, x]= (puzzle.Hazak[y, x]+1)%4;
-                
+            puzzle.Hazak[y, x] = (puzzle.Hazak[y, x] + 1) % 4;
+
             if (puzzle.Hazak[y, x] != 0)
                 picBox.ImageLocation = "Kepek\\Haz" + puzzle.Hazak[y, x] + ".jpg";
             else
@@ -96,25 +98,51 @@ namespace LakoparkProjekt
             pictureBox_left.Visible = true;
             pictureBox_right.Visible = true;
             if (currIndex == 0) pictureBox_left.Visible = false;
-            if (currIndex == happyLiving.Lakoparkok.Count-1) pictureBox_right.Visible = false;
+            if (currIndex == happyLiving.Lakoparkok.Count - 1) pictureBox_right.Visible = false;
             LoadPuzzle(happyLiving.Lakoparkok[currIndex]);
         }
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            var date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString()+"_"+ DateTime.Now.Hour.ToString()+ DateTime.Now.Minute.ToString();
-            File.Copy("lakoparkok.txt", "lakoparkok_"+ date + ".txt",true);
+            //Backup();
             try
             {
-                Serialize();
+                SerializeDatabase();
+                //Serialize();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hiba történt mentéskor: "+ex.Message, "Hiba");
+                MessageBox.Show("Hiba történt mentéskor: " + ex.Message, "Hiba");
                 return;
             }
             MessageBox.Show("Mentés sikeres!");
         }
+
+        private void SerializeDatabase()
+        {
+            Program.Database.Query("TRUNCATE TABLE haz;");
+            foreach (var item in happyLiving.Lakoparkok)
+            {
+                var dbID = Program.Database.Query("SELECT ID FROM lakopark WHERE Nev = @1", item.Nev).Values[0][0];
+                for (int y = 0; y < item.UtcakSzama; y++)
+                {
+                    for (int x = 0; x < item.MaxHazSzam; x++)
+                    {
+                        if (item.Hazak[y, x] == 0) continue;
+                        Program.Database.Query("INSERT INTO `haz` (`LakoparkID`, `Utca`, `HázSzám`, `Méret`) VALUES (@1, @2, @3, @4) "
+                            , dbID, y, x, item.Hazak[y,x]);
+
+                    }
+                }
+            }
+        }
+
+        private void Backup()
+        {
+            var date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString();
+            File.Copy("lakoparkok.txt", "lakoparkok_" + date + ".txt", true);
+        }
+
         private void Serialize()
         {
             var writer = new StreamWriter("lakoparkok.txt");

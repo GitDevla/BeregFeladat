@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace LakoparkProjekt
     internal static class Program
     {
 
-
+        static public SQL Database = new DLib.SQL("localhost", "root", "", "lakopark");
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

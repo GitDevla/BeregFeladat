@@ -6,6 +6,8 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using DLib;
 
 namespace LakoparkProjekt
 {
@@ -14,6 +16,26 @@ namespace LakoparkProjekt
         private List<Lakopark> lakoparkok = new List<Lakopark>();
 
         public List<Lakopark> Lakoparkok { get { return lakoparkok; } }
+
+        public HappyLiving(SQL sql)
+        {
+            var lakopark = sql.Query("SELECT * FROM lakopark");
+            var hazak = sql.Query("SELECT * FROM haz");
+            foreach (var item in lakopark.Values)
+            {
+                var id = item[0];
+                var name = item[1];
+                var height = int.Parse(item[2]);
+                var weight = int.Parse(item[3]);
+                var homesList = hazak.Values.Where(i => i[1] == id).ToList();
+                var homes = new int[height, weight];
+                foreach (var home in homesList)
+                {
+                    homes[int.Parse(home[2]), int.Parse(home[3])] = int.Parse(home[4]);
+                }
+                lakoparkok.Add(new Lakopark(name, height, weight, homes));
+            }
+        }
 
         public HappyLiving(string filenev)
         {
