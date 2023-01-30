@@ -14,6 +14,12 @@ namespace Hazi_Math {
             Console.WriteLine("\nMásodik mátrix: ");
             var b = ReadMatrix();
 
+            if (a.GetLength(0) != b.GetLength(0)
+                || a.GetLength(1) != b.GetLength(1)) {
+                Console.WriteLine("A mátrixok nem megegyező méretűek");
+                return;
+            }
+
             Console.WriteLine("\nKérem válasszon egy Mátrix operációt: ");
             for (int i = 0; i < operations.Length; i++) {
                 var (op, _) = operations[i];
@@ -21,12 +27,7 @@ namespace Hazi_Math {
             }
             Console.Write("Válasz: ");
             var input = int.Parse(Console.ReadLine());
-
-            if (a.GetLength(0) != b.GetLength(0)
-                || a.GetLength(1) != b.GetLength(1)) {
-                Console.WriteLine("A mátrixok nem megegyező méretűek");
-                return;
-            }
+ 
             var res = operations[input - 1].fun(a, b);
             Console.WriteLine("\nKapott mátrix az operáció elvégzése után:");
             DrawMatrix(res);
