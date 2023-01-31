@@ -33,14 +33,20 @@ namespace Hazi_Math {
             int[,] dotMatrix = new int[rows, columns];
             for (int ay = 0; ay < rows; ay++) {
                 for (int bx = 0; bx < columns; bx++) {
+                    var row = GetRow(a, ay);
                     var column = GetColumn(b, bx);
-                    var product = 0;
-                    for (int i = 0; i < column.Length; i++)
-                        product += a[ay, i] * column[i]; 
+                    var product = CalculateDotProduct(row, column);
                     dotMatrix[ay, bx] = product;
                 }
             }
             return dotMatrix;
+        }
+
+        private static int CalculateDotProduct(int[] a, int[] b) {
+            var product = 0;
+            for (int i = 0; i < a.Length; i++)
+                product += a[i] * b[i];
+            return product;
         }
 
         public static int[] GetColumn(int[,] matrix,int num) {
@@ -49,6 +55,14 @@ namespace Hazi_Math {
             for (int y = 0; y < length; y++)
                 column[y] = matrix[y, num];
             return column;
+        }
+
+        public static int[] GetRow(int[,] matrix, int num) {
+            int length = matrix.GetLength(1);
+            int[] row = new int[length];
+            for (int x = 0; x < length; x++)
+                row[x] = matrix[num,x];
+            return row;
         }
 
         public static bool IsSameSize(int[,] a, int[,] b) {
