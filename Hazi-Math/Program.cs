@@ -15,6 +15,16 @@ namespace Hazi_Math {
 
 
         static void Main(string[] args) {
+            Console.WriteLine("Mátrix adatai: ");
+            var x = ReadMatrix();
+            if (x.GetLength(0)!= x.GetLength(1)) {
+                Console.WriteLine("A mátrix dimenziói nem egyeznek meg");
+                return;
+            }
+            var determinant = Matrix.Determinant(x);
+            Console.WriteLine("A mátrix determinánsa: "+determinant);
+
+            /* ----- Lusta vagyok ezt rendesn megcsinálni -----
             Console.WriteLine("Első mátrix: ");
             var a = ReadMatrix();
             Console.WriteLine("\nMásodik mátrix: ");
@@ -35,7 +45,7 @@ namespace Hazi_Math {
 
             var res = filteredOptions[input - 1].fun(a, b);
             Console.WriteLine("\nKapott mátrix az operáció elvégzése után:");
-            DrawMatrix(res);
+            DrawMatrix(res);*/
         }
 
 
