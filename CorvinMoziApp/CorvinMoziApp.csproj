@@ -52,8 +52,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mozi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terem.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +65,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CorvinMozi.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +78,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="kepek\felnott.png" />
+    <Content Include="kepek\gyerek.png" />
+    <Content Include="kepek\jobbra.png" />
+    <Content Include="kepek\Jávor.jpg" />
+    <Content Include="kepek\Kabos.jpg" />
+    <Content Include="kepek\Karády.jpg" />
+    <Content Include="kepek\Korda.jpg" />
+    <Content Include="kepek\Latabár.jpg" />
+    <Content Include="kepek\Radványi.jpg" />
+    <Content Include="kepek\ures.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
