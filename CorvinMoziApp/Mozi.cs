@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 
 namespace CorvinMoziApp {
-    class Mozi {
+    public class Mozi {
         public List<Terem> termek = new List<Terem>();
 
         public void Mentes() {
@@ -24,14 +24,14 @@ namespace CorvinMoziApp {
                         line = reader.ReadLine();
                     } while (!string.IsNullOrEmpty(line));
 
-                    char[,] seats = new char[currHeight, currHeight];
+                    char[,] seats = new char[currHeight, currWidth];
                     foreach (var house in currSeats) {
                         var temp2 = house.Split(';');
-                        int y = int.Parse(temp[0]), x = int.Parse(temp[1]);
+                        int y = int.Parse(temp2[0])-1, x = int.Parse(temp2[1])-1;
                         seats[y, x] = temp2[2][0];
                     }
 
-                    var currImage = Image.FromFile($"{currName.Split(' ')[0]}.jpg");
+                    var currImage = Image.FromFile($"kepek/{currName.Split(' ')[0]}.jpg");
                     termek.Add(new Terem(currName, currHeight, currWidth, seats, currImage));
                 }
             }

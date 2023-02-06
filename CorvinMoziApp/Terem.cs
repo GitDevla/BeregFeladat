@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 
 namespace CorvinMoziApp {
-    class Terem {
+    public class Terem {
         private string nev;
         private Image nevadokep;
         private int sorok;
