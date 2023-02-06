@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CorvinMoziApp {
@@ -78,30 +80,39 @@ namespace CorvinMoziApp {
             File.Copy("CorvinMozi.csv", "backup_" + date + ".txt", true);
         }
 
-        private void Serialize() {
-            var writer = new StreamWriter("CorvinMozi.csv");
-            foreach (var terem in mozi.termek) {
-                writer.WriteLine(terem.Nev);
-                writer.WriteLine(terem.Sorok + ";" + terem.Szekek);
-                for (int y = 0; y < terem.Sorok; y++) {
-                    for (int x = 0; x < terem.Szekek; x++) {
-                        if (terem.Ulesek[y, x] != (char)0) writer.WriteLine((y + 1) + ";" + (x + 1) + ";" + terem.Ulesek[y, x]);
-                    }
-                }
-                writer.WriteLine();
-            }
-            writer.Close();
-        }
-
         private void button_save_Click(object sender, EventArgs e) {
             Backup();
             try {
-                Serialize();
+                mozi.Mentes();
             } catch (Exception ex) {
                 MessageBox.Show("Hiba történt mentéskor: " + ex.Message, "Hiba");
                 return;
             }
             MessageBox.Show("Mentés sikeres!");
+        }
+
+        private void button_stats_Click(object sender, EventArgs e) {
+            var date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+            var fileName = "statisztika_" + date + ".txt";
+            var writer = new StreamWriter(fileName);
+
+            writer.WriteLine("1. Melyik teremben mennyi az értékesítésből származó bevétel, ha felnőtt jegy ár 1 700 Ft, a diák jegy ára 1 200 Ft?");
+            foreach (var terem in mozi.termek)
+                writer.WriteLine($"\t{terem.Nev}: {terem.Income()} Ft");
+
+            var sum = mozi.termek.Sum(i => i.Income());
+            writer.WriteLine("2. Mennyi a Corvin mozi teljes bevétele?: " + sum + "Ft");
+
+            writer.WriteLine("3. Melyik teremben mi az üres helyek és az összes helyek aránya? Az eredményt százalékosan add meg két tizedesjegy pontossággal!");
+            foreach (var terem in mozi.termek) 
+                writer.WriteLine($"\t{terem.Nev}: {terem.ratio()*100:0.00} %");
+
+            var duo = mozi.termek.First(i => i.findEmptyDuo() != null);
+            var pos = duo.findEmptyDuo();
+            writer.WriteLine("4. Melyik teremben van egymás mellett két üres szék?");
+            writer.WriteLine($"A {duo.Nev} teremben a {pos.Value.y+1} sorban a {pos.Value.x} és {pos.Value.x+1} ülés");
+            writer.Close();
+            Process.Start(fileName);
         }
     }
 }

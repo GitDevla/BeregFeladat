@@ -92,6 +92,7 @@ namespace CorvinMoziApp {
             this.button_stats.TabIndex = 5;
             this.button_stats.Text = "Statisztika";
             this.button_stats.UseVisualStyleBackColor = true;
+            this.button_stats.Click += new System.EventHandler(this.button_stats_Click);
             // 
             // Form1
             // 

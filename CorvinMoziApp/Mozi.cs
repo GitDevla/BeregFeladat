@@ -7,7 +7,18 @@ namespace CorvinMoziApp {
         public List<Terem> termek = new List<Terem>();
 
         public void Mentes() {
-
+            var writer = new StreamWriter("CorvinMozi.csv");
+            foreach (var terem in termek) {
+                writer.WriteLine(terem.Nev);
+                writer.WriteLine(terem.Sorok + ";" + terem.Szekek);
+                for (int y = 0; y < terem.Sorok; y++) {
+                    for (int x = 0; x < terem.Szekek; x++) {
+                        if (terem.Ulesek[y, x] != (char)0) writer.WriteLine((y + 1) + ";" + (x + 1) + ";" + terem.Ulesek[y, x]);
+                    }
+                }
+                writer.WriteLine();
+            }
+            writer.Close();
         }
 
         public Mozi(string forras) {
