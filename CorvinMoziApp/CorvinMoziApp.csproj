@@ -91,5 +91,10 @@
     <Content Include="kepek\Radványi.jpg" />
     <Content Include="kepek\ures.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="kepek\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
