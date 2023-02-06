@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace CorvinMoziApp {
@@ -76,6 +71,37 @@ namespace CorvinMoziApp {
             var terem = mozi.termek[currIndex];
             terem.Ulesek[y, x] = cycleThrough(terem.Ulesek[y, x]);
             picBox.Image = chooseImage(terem.Ulesek[y, x]);
+        }
+
+        private void Backup() {
+            var date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString();
+            File.Copy("CorvinMozi.csv", "backup_" + date + ".txt", true);
+        }
+
+        private void Serialize() {
+            var writer = new StreamWriter("CorvinMozi.csv");
+            foreach (var terem in mozi.termek) {
+                writer.WriteLine(terem.Nev);
+                writer.WriteLine(terem.Sorok + ";" + terem.Szekek);
+                for (int y = 0; y < terem.Sorok; y++) {
+                    for (int x = 0; x < terem.Szekek; x++) {
+                        if (terem.Ulesek[y, x] != (char)0) writer.WriteLine((y + 1) + ";" + (x + 1) + ";" + terem.Ulesek[y, x]);
+                    }
+                }
+                writer.WriteLine();
+            }
+            writer.Close();
+        }
+
+        private void button_save_Click(object sender, EventArgs e) {
+            Backup();
+            try {
+                Serialize();
+            } catch (Exception ex) {
+                MessageBox.Show("Hiba történt mentéskor: " + ex.Message, "Hiba");
+                return;
+            }
+            MessageBox.Show("Mentés sikeres!");
         }
     }
 }
