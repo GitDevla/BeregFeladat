@@ -56,6 +56,9 @@
     <Compile Include="PetrikLajosSzg.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -64,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,7 +83,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Kepek\bal.jpg" />
+    <Content Include="Kepek\Bill.jpg" />
+    <Content Include="Kepek\Gordon.jpg" />
+    <Content Include="Kepek\jobb.jpg" />
+    <Content Include="Kepek\ment.jpg" />
+    <Content Include="Kepek\Neumann.jpg" />
+    <Content Include="Kepek\Pont0.jpg" />
+    <Content Include="Kepek\Pont1.jpg" />
+    <Content Include="Kepek\Pont2.jpg" />
+    <Content Include="Kepek\Pont3.jpg" />
+    <Content Include="Kepek\Steve.jpg" />
     <Content Include="petrikgepek.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="kepek\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
