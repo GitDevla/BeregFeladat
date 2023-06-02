@@ -1,0 +1,31 @@
+.card {
+    width: 200px;
+}
+
+.cards {
+    width: 80%;
+    min-height: 100px;
+    background-color: burlywood;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cards * {
+    padding: 10px;
+}
+
+table {
+    background-color: grey;
+    margin: auto;
+}
+
+td {
+    box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    padding: 0px;
+    border: 1px solid #aaaaaa;
+    border-collapse: collapse;
+}
